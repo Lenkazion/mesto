@@ -1,0 +1,15 @@
+.element {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 350px) {
+    .element {
+        margin: 0 19px 20px;
+        width: calc(100% - 38px);
+    }
+}

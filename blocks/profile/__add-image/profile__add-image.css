@@ -1,0 +1,21 @@
+.profile__add-image {
+    width: 22px;
+    height: 22px;
+    margin: 13px 63px;
+}
+
+@media screen and (max-width: 700px) {
+    .profile__add-image {
+        width: 18px;
+        height: 18px;
+        margin: 6px 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile__add-image {
+        width: 16px;
+        height: 16px;
+        margin: 17px 130px;
+    }
+}
