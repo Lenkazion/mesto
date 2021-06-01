@@ -2,4 +2,13 @@
     width: 22px;
     height: 19px;
     margin: 30px 30px 30px 0;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.element__like:hover {
+    opacity: 0.7;
+    transition: opacity linear 0.7s;
 }

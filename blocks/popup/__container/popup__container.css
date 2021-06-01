@@ -1,11 +1,12 @@
 .popup__container {
+    max-width: 430px;
     position: relative;
     background: #FFFFFF;
     border-radius: 15px;
     padding: 34px 36px 37px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 530px) {
     .popup__container {
         max-width: 282px;
         padding: 25px 20px;
