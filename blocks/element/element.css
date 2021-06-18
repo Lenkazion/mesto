@@ -1,5 +1,6 @@
 .element {
     display: flex;
+    position: relative;
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -11,5 +12,9 @@
     .element {
         margin: 0 19px 20px;
         width: calc(100% - 38px);
+    }
+
+    .element:last-child {
+        margin-bottom: 0;
     }
 }
