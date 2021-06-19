@@ -1,31 +1,31 @@
-let popup = document.querySelector('.popup');
-let editProfile = document.querySelector('.popup_edit-profile');
-let addPlace = document.querySelector('.popup_add-place');
+const popup = document.querySelector('.popup');
+const editProfile = document.querySelector('.popup_edit-profile');
+const addPlace = document.querySelector('.popup_add-place');
 
-let profileName = document.querySelector('.profile__name');
-let profileDescription = document.querySelector('.profile__description');
-let inputName = document.querySelector('.popup__input_type_name');
-let inputDescription = document.querySelector('.popup__input_type_description');
-let inputPlaceName = document.querySelector('.popup__input_type_place-name');
-let inputPlaceURL= document.querySelector('.popup__input_type_place-url');
+const profileName = document.querySelector('.profile__name');
+const profileDescription = document.querySelector('.profile__description');
+const inputName = document.querySelector('.popup__input_type_name');
+const inputDescription = document.querySelector('.popup__input_type_description');
+const inputPlaceName = document.querySelector('.popup__input_type_place-name');
+const inputPlaceURL= document.querySelector('.popup__input_type_place-url');
 
-let editProfileButton = document.querySelector('.profile__edit-button');
-let addProfileButton = document.querySelector('.profile__add-button');
+const editProfileButton = document.querySelector('.profile__edit-button');
+const addProfileButton = document.querySelector('.profile__add-button');
 
-let submitButton = document.querySelector('.popup__submit');
+const submitButton = document.querySelector('.popup__submit');
 
-let closeEditProfile = document.querySelector('.popup__close_edit-profile');
-let closeAddPlace = document.querySelector('.popup__close_add-place');
-let closePlacePhoto = document.querySelector('.popup__close_place');
+const closeEditProfile = document.querySelector('.popup__close_edit-profile');
+const closeAddPlace = document.querySelector('.popup__close_add-place');
+const closePlacePhoto = document.querySelector('.popup__close_place');
 
-let editProfileForm = document.querySelector('.popup__form_edit-profile');
-let addPlaceForm = document.querySelector('.popup__form_add-place');
+const editProfileForm = document.querySelector('.popup__form_edit-profile');
+const addPlaceForm = document.querySelector('.popup__form_add-place');
 
-let addNewCards = document.querySelector('#cards-template').content;
-let placeContent = document.querySelector('.elements');
-let fullscreenPlace = document.querySelector('.popup_place');
-let fullscreenPlacePhoto = document.querySelector('.popup__image');
-let fullscreenPlacePhotoText = document.querySelector('.popup__text');
+const addNewCards = document.querySelector('#cards-template').content;
+const placeContent = document.querySelector('.elements');
+const fullscreenPlace = document.querySelector('.popup_place');
+const fullscreenPlacePhoto = document.querySelector('.popup__image');
+const fullscreenPlacePhotoText = document.querySelector('.popup__text');
 
 
 
@@ -134,5 +134,5 @@ closePlacePhoto.addEventListener('click', () => closePopup(fullscreenPlace));
 
 editProfileButton.addEventListener('click', openEditPopup);
 closeEditProfile.addEventListener('click', () => closePopup(editProfile));
-formSaveProfile.addEventListener('submit', formSaveProfile);
+editProfileForm.addEventListener('submit', formSaveProfile);
 
