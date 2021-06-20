@@ -72,7 +72,6 @@ function openEditPopup () {
 
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
-    addPlaceForm.reset();
 };
 
 function submitEditProfileForm (evt) {
@@ -129,7 +128,10 @@ function submitAddCardForm(evt) {
 };
 
 addProfileButton.addEventListener('click', () => openPopup(popupAddCard));
-closeAddPlace.addEventListener('click', () => closePopup(popupAddCard));
+closeAddPlace.addEventListener('click', () => {
+  closePopup(popupAddCard);
+  addPlaceForm.reset();
+});
 addPlaceForm.addEventListener('submit', submitAddCardForm);
 closePlacePhoto.addEventListener('click', () => closePopup(fullscreenPlace));
 
