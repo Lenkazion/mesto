@@ -55,33 +55,45 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
-
-function fillEditProfileFormInputs () {
+  function fillEditProfileFormInputs () {
     inputName.value = profileName.textContent;
     inputDescription.value = profileDescription.textContent;
-};
-
-function openPopup (popup) {
+  };
+  
+  function openPopup (popup) {
     popup.classList.add('popup_opened');
-};
-
-function openEditPopup () {
+  };
+  
+  function openEditPopup () {
     openPopup(popupEditProfile);
+    checkValidation(popup);
     fillEditProfileFormInputs();
-};
-
-function closePopup (popup) {
+  };
+  
+  function openAddPopup(popup) {
+  checkValidation(popup);
+  openPopup(popup);
+  }
+  
+  function closePopup (popup) {
     popup.classList.remove('popup_opened');
-};
-
-function submitEditProfileForm (evt) {
+  };
+  
+  function submitEditProfileForm (evt) {
     evt.preventDefault();
     profileName.textContent = inputName.value;
     profileDescription.textContent = inputDescription.value;
     closePopup(popupEditProfile);
-};
-
-
+  };
+    
+  function submitAddCardForm(evt) {
+      evt.preventDefault();
+      addCard(createCard(inputPlaceName.value, inputPlaceURL.value));
+      inputPlaceName.value = '';
+      inputPlaceURL.value = '';
+      closePopup(popupAddCard);
+  };
+  
 function renderInitialCards () {
     initialCards.forEach(item => {
       addCard(createCard(item.name, item.link));
@@ -118,16 +130,29 @@ function addCard(card) {
 };
     
 renderInitialCards();
-  
-function submitAddCardForm(evt) {
-    evt.preventDefault();
-    addCard(createCard(inputPlaceName.value, inputPlaceURL.value));
-    inputPlaceName.value = '';
-    inputPlaceURL.value = '';
-    closePopup(popupAddCard);
+
+
+function checkValidation (popup) {
+  const inputList = Array.from(popup.querySelectorAll(enableValidation.inputSelector));
+  const formButton = popup.querySelector(enableValidation.submitButtonSelector);
+  toggleButtonState (inputList, formButton);
 };
 
-addProfileButton.addEventListener('click', () => openPopup(popupAddCard));
+document.addEventListener('keyup', (evt) => {
+  const openedPopup = document.querySelector('.popup_opened')
+  if (evt.key === 'Escape'){
+     closePopup(openedPopup);
+  }
+});
+
+document.addEventListener ('click', (evt) => {
+  const openedPopup = document.querySelector('.popup_opened')
+  if (evt.target === openedPopup) {
+     closePopup(openedPopup);
+  }
+});
+
+addProfileButton.addEventListener('click', () => openAddPopup(popupAddCard));
 closeAddPlace.addEventListener('click', () => {
   closePopup(popupAddCard);
   addPlaceForm.reset();
