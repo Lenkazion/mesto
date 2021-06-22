@@ -2,6 +2,8 @@
     display: flex;
     max-width: 880px;
     justify-content: space-between;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
     margin: 0 auto 0;
 }
 

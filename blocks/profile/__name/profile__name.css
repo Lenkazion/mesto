@@ -1,8 +1,13 @@
 .profile__name {
+    position: relative;
+    width: 294px;
     font-size: 42px;
     font-weight: 500;
     line-height: 1.1;
     color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     margin: 22px 18px 16px 0;
 }
 
