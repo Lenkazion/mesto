@@ -36,7 +36,7 @@
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <button class="popup__close popup__close_edit-profile" type="button"><img class="popup__close-icon" src="images/popup__close-icon.svg" alt="Закрыть"></button>
-                <form class="popup__form popup__form_edit-profile" name="edit" novalidate>
+                <form class="popup__form popup__form_edit-profile" name="profile-form" novalidate>
                     <input class="popup__input popup__input_type_name" type="text" name="name" id="name" placeholder="Имя" minlength="2" maxlength="40" required>
                     <span class="popup__error" id="name-error"></span>
                     <input class="popup__input popup__input_type_description" type="text" name="description" id="description" placeholder="О себе" minlength="2" maxlength="200" required>
@@ -50,7 +50,7 @@
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <button class="popup__close popup__close_add-place" type="button"><img class="popup__close-icon" src="images/popup__close-icon.svg" alt="Закрыть"></button>
-                <form class="popup__form popup__form_add-place" name="edit" novalidate>
+                <form class="popup__form popup__form_add-place" name="place-form" novalidate>
                     <input class="popup__input popup__input_type_place-name" type="text" name="title" id="place" placeholder="Название" minlength="2" maxlength="30"required>
                     <span class="popup__error" id="place-error"></span>
                     <input class="popup__input popup__input_type_place-url" type="url" name="description" id="link" placeholder="Ссылка на картинку"required>
@@ -77,7 +77,6 @@
         </div>
     </template>
 
-    <script src="scripts/index.js"></script>
-    <script src="scripts/validate.js"></script>
+    <script type="module" src="scripts/index.js"></script>
 </body>
 </html>
