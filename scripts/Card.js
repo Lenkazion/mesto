@@ -46,7 +46,7 @@ export default class Card {
     }
 
     _handleOpenPopUpImage() {
-        this.fullscreen = document.querySelector('.popup__image');
+        this.fullscreen = document.querySelector('.popup_place');
         this._openPopup(this.fullscreen);
         this.fullscreen.querySelector('.popup__image').src = this._link;
         this.fullscreen.querySelector('.popup__image').alt = this._name;
