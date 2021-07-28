@@ -1,9 +1,9 @@
 export default class Card {
-    constructor(name, link, templateSelector, openPopup) {
+    constructor(name, link, templateSelector, handlerPopUpImage) {
         this._name = name;
         this._link = link;
         this._templateSelector = templateSelector;
-        this._openPopup = openPopup;
+        this._handlerPopUpImage = handlerPopUpImage;
     }
 
     _getTemplate() {
@@ -19,17 +19,18 @@ export default class Card {
         this.cardLike = this._cardElement.querySelector('.element__like');
         this.cardDelete = this._cardElement.querySelector('.element__delete');
 
-        this._setEventListeners();
-
         this.cardImage.src = this._link;
         this.cardImage.alt = this._name;
         this.cardText.textContent = this._name;
+
+        this._setEventListeners();
+
         return this._cardElement;
     }
 
     _setEventListeners() {
         this.cardImage.addEventListener('click', () => {
-            this._handleOpenPopUpImage();
+            this._handlerPopUpImage(this._name, this._link);
         });
 
         this.cardLike.addEventListener('click', () => {
@@ -43,14 +44,6 @@ export default class Card {
 
     _handleLike() {
         this.cardLike.classList.toggle('element__like_active');
-    }
-
-    _handleOpenPopUpImage() {
-        this.fullscreen = document.querySelector('.popup_place');
-        this._openPopup(this.fullscreen);
-        this.fullscreen.querySelector('.popup__image').src = this._link;
-        this.fullscreen.querySelector('.popup__image').alt = this._name;
-        this.fullscreen.querySelector('.popup__text').textContent = this._name;
     }
 
     _handleDelete() {
