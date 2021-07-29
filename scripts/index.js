@@ -81,7 +81,7 @@ function submitEditProfileForm (evt) {
   
 function submitAddCardForm(evt) {
     evt.preventDefault();
-    addCard(inputPlaceName.value, inputPlaceURL.value);
+    addItem(addCard(inputPlaceName.value, inputPlaceURL.value));
     closePopup(popupAddCard);
     validatePlace.toggleButtonState();
 };
