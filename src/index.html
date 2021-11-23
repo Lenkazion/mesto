@@ -4,25 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
     <header class="header">
-        <img class="header__logo" src="images/header__logo.svg" alt="Логотип">
+        <img class="header__logo" src="<%=require('./images/header__logo.svg')%>" alt="Логотип">
     </header>
 
     <main class="content">
        <section class="profile">
            <div class="profile__all-info">
-              <img class="profile__avatar" src="images/profile__image.jpg" alt="Аватар">
+              <img class="profile__avatar" src="<%=require('./images/profile__image.jpg')%>" alt="Аватар">
               <div class="profile__info">
                   <h1 class="profile__name">Жак-Ив Кусто</h1>
-                  <button class="profile__edit-button" type="button"><img class="profile__edit-image" src="images/profile__edit-image.svg" alt="Редактировать"></button>
+                  <button class="profile__edit-button" type="button"><img class="profile__edit-image" src="<%=require('./images/profile__edit-image.svg')%>" alt="Редактировать"></button>
                   <p class="profile__description">Исследователь океана</p>
               </div>
            </div>
           
-           <button class="profile__add-button" type="button"><img class="profile__add-image" src="images/profile__add-image.svg" alt="Добавлять"></button>
+           <button class="profile__add-button" type="button"><img class="profile__add-image" src="<%=require('./images/profile__add-image.svg')%>" alt="Добавлять"></button>
        </section>
 
        <section class="elements"></section>
@@ -35,7 +34,7 @@
     <section class="popup popup_edit-profile">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <button class="popup__close popup__close_edit-profile" type="button"><img class="popup__close-icon" src="images/popup__close-icon.svg" alt="Закрыть"></button>
+            <button class="popup__close popup__close_edit-profile" type="button"><img class="popup__close-icon" src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть"></button>
                 <form class="popup__form popup__form_edit-profile" name="profile-form" novalidate>
                     <input class="popup__input popup__input_type_name" type="text" name="name" id="name" placeholder="Имя" minlength="2" maxlength="40" required>
                     <span class="popup__error" id="name-error"></span>
@@ -49,7 +48,7 @@
     <section class="popup popup_add-place">
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
-            <button class="popup__close popup__close_add-place" type="button"><img class="popup__close-icon" src="images/popup__close-icon.svg" alt="Закрыть"></button>
+            <button class="popup__close popup__close_add-place" type="button"><img class="popup__close-icon" src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть"></button>
                 <form class="popup__form popup__form_add-place" name="place-form" novalidate>
                     <input class="popup__input popup__input_type_place-name" type="text" name="title" id="place" placeholder="Название" minlength="2" maxlength="30"required>
                     <span class="popup__error" id="place-error"></span>
@@ -62,7 +61,7 @@
 
     <section class="popup popup_place">
         <div class="popup__container popup__container_place">
-            <button class="popup__close popup__close_place" type="button"><img class="popup__close-icon" src="images/popup__close-icon.svg" alt="Закрыть"></button>
+            <button class="popup__close popup__close_place" type="button"><img class="popup__close-icon" src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть"></button>
             <img src=" " class="popup__image" alt=" ">
             <p class="popup__text"></p>
         </div>
@@ -70,13 +69,11 @@
 
     <template id="cards-template">
         <div class="element">
-            <button class="element__delete" type="button" ><img class="element__delete-icon" src="images/element__delete.svg" alt="корзина"></button>
+            <button class="element__delete" type="button" ><img class="element__delete-icon" src="<%=require('./images/element__delete.svg')%>" alt="корзина"></button>
             <img class="element__image" src="_" alt>
             <h2 class="element__title"></h2>
-            <button class="element__like" type="button"><img class="element__like-icon" src="images/element__like.svg" alt="лайк"></button>
+            <button class="element__like" type="button"><img class="element__like-icon" src="<%=require('./images/element__like.svg')%>" alt="лайк"></button>
         </div>
     </template>
-
-    <script type="module" src="scripts/index.js"></script>
 </body>
 </html>
