@@ -79,8 +79,8 @@ editProfileButton.addEventListener('click', function (evt) {
   evt.preventDefault();
   popupProfileForm.open();
   const profile = user.getUserInfo();
-  inputName.value = profile.name;
-  inputDescription.value = profile.description;
+  inputName.value = profile.profileName;
+  inputDescription.value = profile.profileDescription;
 });
 
 addPlaceButton.addEventListener('click', function (evt) {
