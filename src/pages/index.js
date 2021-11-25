@@ -66,26 +66,26 @@ function open(name, link) {
   popupImage.open(name, link);
 }
 
-function addCard ({ name, link}) {
-  const card = new Card(name, link, '#cards-template', open).createCard();
+function addCard ({ title, description}) {
+  const card = new Card(title, description, '#cards-template', open).createCard();
   cardList.addItem(card);
 }
 
-function saveProfile({profileName, profileDescription}) {
-  user.setUserInfo(profileName, profileDescription);
+function saveProfile({name, description}) {
+  user.setUserInfo(name, description);
 }
 
 editProfileButton.addEventListener('click', function (evt) {
   evt.preventDefault();
   popupProfileForm.open();
   const profile = user.getUserInfo();
-  inputName.value = profile.profileName;
-  inputDescription.value = profile.profileDescription;
+  inputName.value = profile.name;
+  inputDescription.value = profile.description;
 });
 
 addPlaceButton.addEventListener('click', function (evt) {
   evt.preventDefault();
   popupAddPlace.open();
-  validatorPlace.toggleButtonState();
+  validatePlace.toggleButtonState();
 });
 
