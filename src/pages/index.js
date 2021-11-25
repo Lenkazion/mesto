@@ -5,47 +5,20 @@ import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
-import { initialCards } from '../components/InitialCards.js';
-
-
-const config = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit',
-  inactiveButtonClass: 'popup__submit_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error',
-};
-
-const popupEditProfile = document.querySelector('.popup_edit-profile');
-const popupAddCard = document.querySelector('.popup_add-place');
-
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
-const inputName = document.querySelector('.popup__input_type_name');
-const inputDescription = document.querySelector('.popup__input_type_description');
-
-const editProfileButton = document.querySelector('.profile__edit-button');
-const addPlaceButton = document.querySelector('.profile__add-button');
-
-const placeContent = document.querySelector('.elements');
-
-const profileForm = document.querySelector("form[name='profile-form']");
-const placeForm = document.querySelector("form[name='place-form']");
+import { initialCards } from '../utils/InitialCards.js';
+import { config, popupEditProfile, popupAddCard, profileName, profileDescription, inputName, inputDescription, editProfileButton, addPlaceButton,
+  placeContent, profileForm, placeForm, fullscreenImage, popupPlaceName, popupPlaceLink} from '../utils/constants.js';
 
 const validateProfile = new FormValidator(config, profileForm);
 validateProfile.enableValidation();
 const validatePlace = new FormValidator(config, placeForm);
 validatePlace.enableValidation();
 
-const fullscreenImage = document.querySelector('.popup_place');
 const popupImage = new PopupWithImage(fullscreenImage);
 popupImage.setEventListeners();
 
 const popupProfileForm = new PopupWithForm(popupEditProfile, saveProfile);
-const popupAddPlace = new PopupWithForm(popupAddCard, addCard);
 popupProfileForm.setEventListeners();
-popupAddPlace.setEventListeners();
 
 const user = new UserInfo(profileName, profileDescription);
 
@@ -53,8 +26,7 @@ const cardList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const card = new Card(item.name, item.link, '#cards-template', open).createCard();
-      cardList.addItem(card);
+      cardList.addItem(generateCard(item))
     },
   },
   placeContent,
@@ -62,14 +34,23 @@ const cardList = new Section(
 
 cardList.renderItems();
 
-function open(name, link) {
-  popupImage.open(name, link);
+function generateCard(item) {
+  const card = new Card(item, '#cards-template', () => {
+    popupImage.open(item)
+ })
+ return card.createCard()
 }
 
-function addCard ({ title, description}) {
-  const card = new Card(title, description, '#cards-template', open).createCard();
-  cardList.addItem(card);
-}
+const popupAddPlace = new PopupWithForm(popupAddCard, () => {
+  const addCards = {
+    name: popupPlaceName.value,
+    link: popupPlaceLink.value
+  };
+  placeContent.prepend(generateCard(addCards));
+  popupAddPlace.close()
+})
+
+popupAddPlace.setEventListeners();
 
 function saveProfile({name, description}) {
   user.setUserInfo(name, description);
