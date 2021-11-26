@@ -1,5 +1,5 @@
 export { config, popupEditProfile, popupAddCard, profileName, profileDescription, inputName, inputDescription, editProfileButton, addPlaceButton,
-placeContent, popupPlaceName, popupPlaceLink, profileForm, placeForm, fullscreenImage}
+placeContent, profileForm, placeForm, fullscreenImage}
 
 const config = {
     formSelector: '.popup__form',
@@ -22,9 +22,6 @@ const editProfileButton = document.querySelector('.profile__edit-button');
 const addPlaceButton = document.querySelector('.profile__add-button');
 
 const placeContent = document.querySelector('.elements');
-
-const popupPlaceName = document.querySelector('.popup__input_type_place-name');
-const popupPlaceLink = document.querySelector('.popup__input_type_place-url');
 
 const profileForm = document.querySelector("form[name='profile-form']");
 const placeForm = document.querySelector("form[name='place-form']");

@@ -7,7 +7,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import { initialCards } from '../utils/InitialCards.js';
 import { config, popupEditProfile, popupAddCard, profileName, profileDescription, inputName, inputDescription, editProfileButton, addPlaceButton,
-  placeContent, profileForm, placeForm, fullscreenImage, popupPlaceName, popupPlaceLink} from '../utils/constants.js';
+  placeContent, profileForm, placeForm, fullscreenImage } from '../utils/constants.js';
 
 const validateProfile = new FormValidator(config, profileForm);
 validateProfile.enableValidation();
