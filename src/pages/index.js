@@ -20,6 +20,9 @@ popupImage.setEventListeners();
 const popupProfileForm = new PopupWithForm(popupEditProfile, saveProfile);
 popupProfileForm.setEventListeners();
 
+const popupAddPlace = new PopupWithForm(popupAddCard, addCard); 
+popupAddPlace.setEventListeners();
+
 const user = new UserInfo(profileName, profileDescription);
 
 const cardList = new Section(
@@ -34,23 +37,21 @@ const cardList = new Section(
 
 cardList.renderItems();
 
-function generateCard(item) {
-  const card = new Card(item, '#cards-template', () => {
-    popupImage.open(item)
- })
- return card.createCard()
+function openPopupImage(name, link) {
+  popupImage.open(name, link)
 }
 
-const popupAddPlace = new PopupWithForm(popupAddCard, () => {
-  const addCards = {
-    name: popupPlaceName.value,
-    link: popupPlaceLink.value
-  };
-  placeContent.prepend(generateCard(addCards));
-  popupAddPlace.close()
-})
+function generateCard(item) {
+  return new Card(item.name, item.link, '#cards-template', openPopupImage).createCard()
+}
 
-popupAddPlace.setEventListeners();
+function addCard({title, description}) {  
+  const newCardItem = generateCard({
+    name: title,
+    link: description
+  })
+  cardList.addItem(newCardItem)
+}
 
 function saveProfile({name, description}) {
   user.setUserInfo(name, description);
