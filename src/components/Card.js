@@ -58,7 +58,7 @@ export default class Card {
 
     _hideDeleteButton() {
         if (this._ownerId !== this._userId) {
-          this._deleteButton.style.display = 'none';
+          this._cardDelete.style.display = 'none';
         }
       }
 
