@@ -13,23 +13,43 @@
     <main class="content">
        <section class="profile">
            <div class="profile__all-info">
-              <img class="profile__avatar" src="<%=require('./images/profile__image.jpg')%>" alt="Аватар">
+              <div class="profile__avatar"></div>
               <div class="profile__info">
-                  <h1 class="profile__name">Жак-Ив Кусто</h1>
+                  <h1 class="profile__name"></h1>
                   <button class="profile__edit-button" type="button"><img class="profile__edit-image" src="<%=require('./images/profile__edit-image.svg')%>" alt="Редактировать"></button>
-                  <p class="profile__description">Исследователь океана</p>
+                  <p class="profile__description"></p>
               </div>
            </div>
-          
            <button class="profile__add-button" type="button"><img class="profile__add-image" src="<%=require('./images/profile__add-image.svg')%>" alt="Добавлять"></button>
        </section>
-
        <section class="elements"></section>
     </main>
 
     <footer class="footer">
         <p class="footer__copyright">&copy; 2021. Elena Komushyna</p>
     </footer>
+
+    <section class="popup popup_delete-confirmation">
+        <div class="popup__container">
+            <h2 class="popup__title">Вы уверены?</h2>
+            <button class="popup__close popup__close_delete-confirmation" type="button"><img class="popup__close-icon" src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть"></button>
+            <form class="popup__form popup__form_delete-confirmation" name="delete-confirmation-form" novalidate>
+                <button class="popup__submit" type="submit">Да</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="popup popup_edit-avatar">
+        <div class="popup__container">
+            <h2 class="popup__title">Обновить аватар</h2>
+            <button class="popup__close popup__close_edit-avatar" type="button"><img class="popup__close-icon" src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть"></button>
+            <form class="popup__form popup__form_edit-avatar" name="avatar-form" novalidate>
+                <input class="popup__input popup__input_type_avatar-link" type="url" name="avatar" id="avatar" placeholder="Ссылка на картинку" required>
+                <span class="popup__error" id="avatar-error"></span>
+                <button class="popup__submit" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </section>
 
     <section class="popup popup_edit-profile">
         <div class="popup__container">
@@ -38,8 +58,8 @@
                 <form class="popup__form popup__form_edit-profile" name="profile-form" novalidate>
                     <input class="popup__input popup__input_type_name" type="text" name="name" id="name" placeholder="Имя" minlength="2" maxlength="40" required>
                     <span class="popup__error" id="name-error"></span>
-                    <input class="popup__input popup__input_type_description" type="text" name="description" id="description" placeholder="О себе" minlength="2" maxlength="200" required>
-                    <span class="popup__error" id="description-error"></span>
+                    <input class="popup__input popup__input_type_description" type="text" name="about" id="about" placeholder="О себе" minlength="2" maxlength="200" required>
+                    <span class="popup__error" id="about-error"></span>
                     <button class="popup__submit" type="submit">Сохранить</button>
                 </form> 
         </div>
@@ -50,9 +70,9 @@
             <h2 class="popup__title">Новое место</h2>
             <button class="popup__close popup__close_add-place" type="button"><img class="popup__close-icon" src="<%=require('./images/popup__close-icon.svg')%>" alt="Закрыть"></button>
                 <form class="popup__form popup__form_add-place" name="place-form" novalidate>
-                    <input class="popup__input popup__input_type_place-name" type="text" name="title" id="place" placeholder="Название" minlength="2" maxlength="30"required>
+                    <input class="popup__input popup__input_type_place-name" type="text" name="name" id="place" placeholder="Название" minlength="2" maxlength="30"required>
                     <span class="popup__error" id="place-error"></span>
-                    <input class="popup__input popup__input_type_place-url" type="url" name="description" id="link" placeholder="Ссылка на картинку"required>
+                    <input class="popup__input popup__input_type_place-url" type="url" name="link" id="link" placeholder="Ссылка на картинку"required>
                     <span class="popup__error" id="link-error"></span>
                     <button class="popup__submit" type="submit">Сохранить</button>
                 </form> 
@@ -71,8 +91,13 @@
         <div class="element">
             <button class="element__delete" type="button" ><img class="element__delete-icon" src="<%=require('./images/element__delete.svg')%>" alt="корзина"></button>
             <img class="element__image" src="_" alt>
-            <h2 class="element__title"></h2>
-            <button class="element__like" type="button"><img class="element__like-icon" src="<%=require('./images/element__like.svg')%>" alt="лайк"></button>
+            <div class="element__container">
+                <h2 class="element__title"></h2>
+                <div class="elements__like">
+                <button class="element__like" type="button"></button>
+                <span class="element__like_counter"></span>
+            </div>
+            </div>
         </div>
     </template>
 </body>
