@@ -66,9 +66,9 @@ function createNewCard(data) {
 }
 
 function saveAvatarButton() {
+  popupEditAvatar.open();
   validateAvatar.toggleButtonState();
   validateAvatar.hideError();
-  popupEditAvatar.open();
 }
 
 function saveProfileButton() {
@@ -80,9 +80,9 @@ function saveProfileButton() {
 }
 
 function saveNewPlaceButton() {
+  popupAddPlace.open();
   validatePlace.toggleButtonState();
   validatePlace.hideError();
-  popupAddPlace.open();
 }
 
 function saveAvatar(data) {
